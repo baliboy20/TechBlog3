@@ -1,0 +1,23 @@
+$border-color: darken(darkgray, 45%);
+
+.mat-toolbar {
+  background-color: crimson;
+  color: ghostwhite;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid  $border-color;
+  box-shadow: 1px 3px 12px -4px $border-color;
+  z-index: 100;
+}
+
+mat-drawer-container {
+  height: calc(100vh - 60px);
+}
+
+mat-drawer {
+  max-width: 300px;
+  background-color: lighten(orange, 50%);
+}
+
+
+

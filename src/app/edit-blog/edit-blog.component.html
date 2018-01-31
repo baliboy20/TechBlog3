@@ -1,0 +1,102 @@
+<!--
+ title
+ date
+ constent
+ tags
+ categories
+
+-->
+<mat-toolbar class="edit-toolbar">hello dolly</mat-toolbar>
+<mat-tab-group >
+    <mat-tab >
+        <ng-template mat-tab-label >
+           <span class="material-icons" matTooltip="edit">edit</span>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="fister"></ng-container>
+    </mat-tab>
+
+    <mat-tab >
+        <ng-template mat-tab-label >
+            <span class="material-icons" matTooltip="preview">personal_video</span>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="preview"></ng-container>
+    </mat-tab>
+</mat-tab-group>
+
+<ng-template #preview>
+    <div class="mat-card">
+        <markdown [data]="blog.content"></markdown>
+    </div>
+</ng-template>
+
+<ng-template #fister>
+
+    <mat-card class="mat-card">
+
+        <form novalidate #editBlogForm="ngForm">
+
+            <mat-form-field>
+                <input type="text"
+                       matInput
+                       name="title"
+                       [(ngModel)]="blog.title"
+                       matFormFieldControl
+                       placeholder="Title"
+                       required>
+
+                <mat-error> Title cannot be left empty</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input type="text"
+                       readonly
+                       matInput name="postedon"
+                       [ngModel]="blog.postedOn">
+
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <textarea name="content"
+                          matInput
+                          [(ngModel)]="blog.content"
+                          cols="30"
+                          rows="10">
+                </textarea>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-chip-list #taglist>
+                    <mat-chip *ngFor="let tag of blog.tags"
+                              [selectable]="true"
+                              (remove)="removeTag()">
+                        {{tag}}
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                    <input type="text"
+                           [matChipInputFor]="taglist"
+                           [matChipInputAddOnBlur]="true"
+                           (matChipInputTokenEnd)="addTag($event)"
+                           placeholder="new tag...">
+                </mat-chip-list>
+
+            </mat-form-field>
+        </form>
+
+        <mat-card-actions>
+            <button mat-raised-button
+                    color="primary"
+                    *ngIf="editBlogForm.value"
+                    (click)="onSave()">Save
+            </button>
+            <button mat-raised-button
+                    (click)="onCancel()"
+                    color="hint"
+                    (click)="onCancel()">Cancel
+            </button>
+        </mat-card-actions>
+       <mat-card-footer></mat-card-footer>
+    </mat-card>
+
+
+</ng-template>

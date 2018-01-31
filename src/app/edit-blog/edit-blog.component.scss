@@ -1,0 +1,41 @@
+
+mat-tab-group {
+width: 70%;
+  margin: auto;
+}
+
+//mat-tab {
+//  width: 10%;
+//  background-color: purple;
+//}
+mat-card {
+  top: 25px;
+  position: relative;
+
+  width: 90%;
+  &> form {
+
+  }
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+ width: 100%;
+
+
+  &  textarea {
+    background-color: whitesmoke;
+  padding: 5px;
+  }
+}
+
+*[MatInput],  textarea {
+  //background-color: whitesmoke;
+}
+
+.edit-toolbar {
+  background-color: darken(crimson, 10%);
+  height: 80px;
+  width: 100%;
+  margin-bottom: 20px;
+}
