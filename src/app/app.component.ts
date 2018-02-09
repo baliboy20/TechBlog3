@@ -18,8 +18,13 @@ export class AppComponent {
  this.smenu.toggle();
   }
 
-  routeTo(path: string){
-    this.rtr.navigate([path]);
-    this.smenu.close();
+  routeTo(path: string | string[]){
+      console.log('route to', path, this.rtr.routerState);
+      if(!Array.isArray(path)) {
+          path = [path];
+      }
+      // console.log('path', path);
+    this.rtr.navigate(path);
   }
 }
+//

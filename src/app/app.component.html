@@ -1,27 +1,45 @@
 <mat-toolbar>
-
     <button (click)="toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
     </button>
-
-
 </mat-toolbar>
 
 <div class="spacer"></div>
 
 <mat-drawer-container>
-    <mat-drawer opened="false" mode="over" #sidenav >
+    <mat-drawer opened="true"
+                mode="over"
+                #sidenav >
 
      <mat-list>
          <mat-list-item>
-             <button mat-button (click)="routeTo('edit')">edit</button>
+             <button mat-button (click)="routeTo('blog')">EDIT</button>
          </mat-list-item>
 
-        <mat-list-item>
-            <button mat-button (click)="routeTo('find')">find</button>
-        </mat-list-item>
-        </mat-list>
+        <!--<mat-list-item>-->
+            <!--<button mat-button (click)="routeTo('find')">FIND</button>-->
+        <!--</mat-list-item>-->
+        <!--</mat-list>-->
 
+        <!--<mat-list-item>-->
+            <!--<button mat-button (click)="routeTo(['blog'])">BLOG FIND</button>-->
+        <!--</mat-list-item>-->
+
+        <!--<mat-list-item>-->
+            <!--<button mat-button (click)="routeTo(['blog'])">BLOG</button>-->
+        <!--&lt;!&ndash;</mat-list-item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-list-item>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button mat-button (click)="routeTo(['blog','blog-edit'])">LINKS BLOG EDIT</button>&ndash;&gt;-->
+        <!--</mat-list-item>-->
+
+        <!--<mat-list-item>-->
+            <!--<button mat-button (click)="routeTo('blog')">CHEATSHEET</button>-->
+        <!--</mat-list-item>-->
+
+        <!--<mat-list-item>-->
+            <!--<button mat-button (click)="routeTo('blog')">ACTIVITY LIST</button>-->
+        <!--</mat-list-item>-->
+     </mat-list>
     </mat-drawer>
 
     <router-outlet></router-outlet>

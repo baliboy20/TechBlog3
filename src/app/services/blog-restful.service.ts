@@ -1,28 +1,30 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BlogItem} from "./domain/blog-model.service";
 
-const  url =  'http://localhost:8080';
+const url = 'http://localhost:8080';
 
 @Injectable()
 export class BlogRestfulService {
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
-  find() {
+    find() {
+    }
 
-  }
+    findAll() {
+        return this.http.get(url.concat('/blogs'));
+    }
 
-  findAll() {
-    console.log('findall ....');
-    return this.http.get(url.concat('/blogs'));
-  }
+    update(itm: BlogItem) {
+    }
 
-  update(itm: BlogItem) {}
-  remove(itm: BlogItem) {}
-  insert(itm: BlogItem) {
-    // remove item['_id']
-    return this.http.post(url.concat('/blog'), itm);
-  }
+    remove(itm: BlogItem) {
+    }
 
+    insert(itm: BlogItem) {
+        // remove item['_id']
+        return this.http.post(url.concat('/blog'), itm);
+    }
 }

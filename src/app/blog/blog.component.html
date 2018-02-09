@@ -1,0 +1,15 @@
+<mat-toolbar class="edit-toolbar">
+
+<!--<button mat-icon-button><mat-icon>search</mat-icon></button>-->
+<!--<button  mat-button>EDIT</button>-->
+<!--<button  mat-button>NEW</button>-->
+
+    <a mat-button [routerLink]="['blog-find']">
+        <mat-icon>search</mat-icon>
+    </a>
+    <a mat-button [routerLink]="['blog-edit']">edit blog</a>
+
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>

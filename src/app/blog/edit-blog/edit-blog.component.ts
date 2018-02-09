@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogItem, BlogModelService} from "../services/domain/blog-model.service";
+import {BlogItem, BlogModelService} from "../../services/domain/blog-model.service";
 import {MatChipInputEvent, MatSnackBar} from "@angular/material";
-import {BlogRestfulService} from "../services/blog-restful.service";
+import {BlogRestfulService} from "../../services/blog-restful.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-edit-blog',
@@ -10,12 +11,20 @@ import {BlogRestfulService} from "../services/blog-restful.service";
 })
 export class EditBlogComponent implements OnInit {
 
-    constructor(private repo: BlogRestfulService, private snakbar: MatSnackBar) {
+
+
+    constructor(private repo: BlogRestfulService,
+                private route: Router,
+                private act: ActivatedRoute,
+                private snakbar: MatSnackBar) {
     }
 
     blog: BlogItem = BlogModelService.newInst();
 
+
     ngOnInit() {
+        console.log('initiating edit blog');
+        this.act.fragment.subscribe(console.log);
     }
 
     addTag(event: MatChipInputEvent) {
